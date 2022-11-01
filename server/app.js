@@ -1,10 +1,15 @@
 const express = require('express');
 const app = express();
 
+
+app.use('/static', express.static('assets'));
+app.use(express.json());
+
 // For testing purposes, GET /
 app.get('/', (req, res) => {
   res.json("Express server running. No content provided at root level. Please use another route.");
 });
+
 
 // For testing express.json middleware
 app.post('/test-json', (req, res, next) => {
